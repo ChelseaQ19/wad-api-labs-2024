@@ -6,3 +6,4 @@ export const tasksData = {
     { id: "2", title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", done: false, priority: "medium" },
     { id: "3", title: "Tidy up", deadline: "Today", done: false, priority: "high" }]
 };
+
