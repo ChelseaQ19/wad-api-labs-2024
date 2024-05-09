@@ -10,7 +10,7 @@ const MoviesPage = () => {
     if (isError) {
         return <h1>{error.message}</h1>
     }
-    const movies = data.results;
+    const movies = data;
     const moviesDisplay = (
         <div>
             {movies.map(movie => { return <li key={movie.id}>{movie.id},{movie.title}<br /></li> })}
