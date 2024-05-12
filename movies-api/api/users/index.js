@@ -11,6 +11,21 @@ router.get('/', async (req, res) => {
     res.status(200).json(users);
 });
 
+
+//fetches user details by ID
+router.get('/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            return res.status(404).json({ success: false, msg: 'User not recognised.' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, msg: 'Internal server error.' });
+    }
+});
+
 // register(Create)/Authenticate User
 router.post('/', asyncHandler(async (req, res) => {
     try {
