@@ -15,13 +15,12 @@ router.get('/', async (req, res) => {
 //fetches user details by ID
 router.get('/:id', async (req, res) => {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findById(req.params.id); //req.params.id will contain the users ID when using the GET request
         if (!user) {
             return res.status(404).json({ success: false, msg: 'User not recognised.' });
         }
         res.status(200).json(user);
     } catch (error) {
-        console.error(error);
         res.status(500).json({ success: false, msg: 'Internal server error.' });
     }
 });
