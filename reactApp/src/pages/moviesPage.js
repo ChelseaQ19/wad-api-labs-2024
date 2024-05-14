@@ -1,6 +1,5 @@
 import { useQuery } from 'react-query';
 import { getMovies } from "../api/movies-api";
-import { getMovieRecommendations } from '../api/movies-api';
 
 const MoviesPage = () => {
     const { data, error, isLoading, isError } = useQuery('discover', getMovies)
@@ -15,8 +14,7 @@ const MoviesPage = () => {
     const movies = data;
 
     
-    const moviesDisplay = (
-        <div>
+    const moviesDisplay = (        <div>
             <ul> 
                 {movies.map(movie => ( //adding movie id , title and overview in a list format.
                     <li key={movie.id}>

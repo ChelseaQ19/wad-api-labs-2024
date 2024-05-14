@@ -31,6 +31,17 @@ export const getMovieRecommendations = async (id) => {
   return response.json();
 };
 
+export const getSimilarMovies = async (id) => {
+  const response = await fetch(
+    `http://localhost:8080/api/movies/tmdb/similar/${id}`, {
+    headers: {
+      'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  );
+  return response.json();
+};
+
   
 export const login = async (username, password) => {
   const response = await fetch('http://localhost:8080/api/users', {

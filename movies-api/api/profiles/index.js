@@ -1,7 +1,6 @@
 import express from 'express';
 import Profile from './profileModel';
 import asyncHandler from 'express-async-handler';
-import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
@@ -27,9 +26,10 @@ router.get('/:id', async (req, res) => {
 // Create a new profile
 router.post('/', asyncHandler(async (req, res) => {
     try {
-        const profile = await Profile.create(req.body);
+        const profile = await Profile.create( req.body );
         res.status(201).json({ success: true, msg: 'Profile successfully created.', profile });
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Internal server error.' });
     }
 }));
+export default router;
