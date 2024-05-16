@@ -6,6 +6,7 @@ import ProfilePage from "./pages/profilePage";
 import MoviesPage from "./pages/moviesPage";
 import TrendingMoviesPage from "./pages/trendingPage";
 import RecommendationsPage from "./pages/recommendationsPage";
+import Creditspage from "./pages/creditsPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import LoginPage from "./pages/loginPage";
 import AuthContextProvider from "./contexts/authContext";
@@ -37,6 +38,9 @@ const App = () => {
               <Link to="/movies">Movies</Link>
             </li>
             <li>
+              <Link to="/similar">Similar Movies</Link>
+            </li>
+            <li>
               <Link to="/profile">Profile</Link>
             </li>
             <li>
@@ -44,6 +48,9 @@ const App = () => {
             </li>
             <li>
               <Link to="/recommendations">Recommendations</Link>
+            </li>
+            <li>
+              <Link to="/credits">Credits</Link>
             </li>
           </ul>
           <Routes>
@@ -54,6 +61,7 @@ const App = () => {
               <Route path="/movies" element={<MoviesPage />} />
               <Route path="/trending" element={<TrendingMoviesPage />} />
               <Route path="/recommendations" element={<RecommendationsPage />} />
+              <Route path="/credits" element={<Creditspage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/signup" element={ <SignUpPage /> } />
             </Route>
