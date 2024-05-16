@@ -2,6 +2,7 @@ import {getUpcomingMovies} from '../tmdb-api';
 import {getGenres} from '../tmdb-api';
 import { getTrendingMovies } from '../tmdb-api';
 import { getMovieRecommendations } from '../tmdb-api';
+import { getMovieReviews } from '../tmdb-api';
 import { getMovieCredits } from '../tmdb-api';
 import { getAccountDetails } from '../tmdb-api';
 import movieModel from './movieModel';
@@ -52,6 +53,13 @@ router.get('/tmdb/credits/:id', asyncHandler(async (req, res) => { //get recomme
     const credits = await getMovieCredits(id);
     res.status(200).json(credits);
 }));
+
+router.get('/tmdb/reviews/:id', asyncHandler(async (req, res) => { //get recommended movies based on movie ID.
+    const { id } = req.params; //extracts the movie ID from the request parameters, whichever one is requested.
+    const reviews = await getMovieReviews(id);
+    res.status(200).json(reviews);
+}));
+
 
 router.get('/tmdb/account', asyncHandler(async (req, res) => { //get account details 
     const account = await getAccountDetails();

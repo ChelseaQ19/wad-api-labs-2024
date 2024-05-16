@@ -81,6 +81,22 @@ export const getMovieCredits = async (id) => { //telling the function to get mov
     }
 };
 
+export const getMovieReviews = async (id) => { //telling the function to get movie based on ID given.
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.TMDB_KEY}&language=en-US&page=1`
+        );
+
+        if (!response.ok) {
+            throw new Error(response.json().message);
+        }
+
+        return await response.json();
+    } catch (error) {
+        throw error;
+    }
+};
+
 export const getSimilarMovies= async (id) => { 
     try {
         const response = await fetch(

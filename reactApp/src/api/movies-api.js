@@ -53,6 +53,17 @@ export const getMovieCredits = async (id) => {
   return response.json();
 };
 
+export const getMovieReviews = async (id) => {
+  const response = await fetch(
+    `http://localhost:8080/api/movies/tmdb/reviews/${id}`, {
+    headers: {
+      'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  );
+  return response.json();
+};
+
   
 export const login = async (username, password) => {
   const response = await fetch('http://localhost:8080/api/users', {
@@ -77,13 +88,13 @@ export const signup = async (username, password) => {
 };
 
 //creating an API from the user profile Mongo schema
-export const getProfiles = async () => {
-  const response = await fetch(
-    `http://localhost:8080/api/profiles`, {
-    headers: {
-      'Authorization': window.localStorage.getItem('token')
-    }
-  }
-  );
+export const getProfiles = async (userId, fullName, dateOfBirth, bio) => {
+  const response = await fetch('http://localhost:8080/api/profiles', {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify({ user: userId, fullName, dateOfBirth, bio })
+  });
   return response.json();
 };
