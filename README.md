@@ -40,5 +40,6 @@ Login and register authentication button.
 
 ## Integrating with React App
 
-Described in email, misunderstood the purpose of the assignment and instead elaborated from the React labs given in assignment 2. New API features still implemented and labs all completed.
+Described in email, misunderstood the purpose of the assignment and instead elaborated from the React labs given in assignment 2. New API features still implemented and labs all completed. 
+Issue with saving users to database, created two users as examples to login and did not save properly on postman even when i redid the lab steps provided to use the GET and POST request.
 
